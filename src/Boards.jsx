@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -25,18 +25,21 @@ export default class Boards extends Component {
 
   render() {
     return (
-      <Grid container spacing={16}>
-        {this.state.boards.map(board => <Grid key={board.id} item xl={2}>
-          <Link to={`/boards/${board.id}`}>
-          
-            <Card>
-              <CardContent>
-                <Typography variant="headline" component="h4"> {board.name} </Typography>
-              </CardContent>
-            </Card>
-          </Link>
-        </Grid>)}
-      </Grid>
+      <Fragment>
+        <h1>Sakthivel Trello App!!</h1>
+        <Grid container spacing={16}>
+          {this.state.boards.map(board => <Grid key={board.id} item xl={2}>
+            <Link to={`/boards/${board.id}`}>
+            
+              <Card>
+                <CardContent>
+                  <Typography variant="headline" component="h4"> {board.name} </Typography>
+                </CardContent>
+              </Card>
+            </Link>
+          </Grid>)}
+        </Grid>
+      </Fragment>
     );
   }
 }
