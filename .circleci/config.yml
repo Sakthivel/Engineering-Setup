@@ -1,0 +1,16 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8.11.3
+
+    working_directory: ~/Engineering-Setup
+
+    steps:
+      - checkout
+      - run: yarn install
+      - run: yarn test
+      - run: yarn build
+
+workflows:
+  version: 2
