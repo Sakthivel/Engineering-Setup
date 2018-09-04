@@ -1,7 +1,28 @@
 const { createStore } = require('redux');
-const TrelloApp = require('.');
+const TrelloApp = require('./');
+const App = require('../');
 const should = require('chai').should();
+const expect = require('chai').expect();
 const deepFreeze = require('deep-freeze');
+
+const {
+	configure,
+	shallow,
+	mount,
+	render
+} = require('enzyme');
+const Adapter = require('enzyme-adapter-react-16');
+
+configure({
+	adapter: new Adapter()
+});
+
+describe('<App />', () => {
+	it('should load without errors', () => {
+		const wrapper = render(App);
+		expect(wrapper.find('h1')).to.have.lengthOf(1);
+	});
+});
 
 describe('TrelloApp', function() {
 
